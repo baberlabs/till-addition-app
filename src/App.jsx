@@ -20,6 +20,7 @@ export default function App() {
   function handleChange(e) {
     const id = e.target.id;
     const value = e.target.value;
+    // console.log({ id, value });
     const updatedTill = structuredClone(till);
     updatedTill[id] = value;
     setTill(updatedTill);
@@ -35,7 +36,7 @@ export default function App() {
       const tenPs = cash["10p"] ? cash["10p"] / 10 : 0;
       const twentyPs = cash["20p"] ? cash["20p"] / 5 : 0;
       const fiftyPs = cash["50p"] ? cash["50p"] / 2 : 0;
-      const ones = cash["£1"] ? cash["£1"] : 0;
+      const ones = cash["£1"] ? cash["£1"] * 1 : 0;
       const twos = cash["£2"] ? cash["£2"] * 2 : 0;
       const fives = cash["£5"] ? cash["£5"] * 5 : 0;
       const tens = cash["£10"] ? cash["£10"] * 10 : 0;
