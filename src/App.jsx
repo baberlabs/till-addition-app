@@ -15,13 +15,13 @@ export default function App() {
     "£20": 0,
     "£50": 0,
   });
+
   const [total, setTotal] = useState(0);
 
   function handleChange(e) {
+    const updatedTill = structuredClone(till);
     const id = e.target.id;
     const value = e.target.value;
-    // console.log({ id, value });
-    const updatedTill = structuredClone(till);
     updatedTill[id] = value;
     setTill(updatedTill);
     setTotal(tillAddition(updatedTill));
@@ -66,32 +66,42 @@ export default function App() {
   }
 
   return (
-    <main className="flex h-screen w-full flex-col items-center justify-center gap-4 bg-zinc-100">
-      <form className="flex w-[360px] flex-row flex-wrap justify-center gap-4 rounded border bg-zinc-200 p-4">
-        {Object.keys(till).map((unit) => {
-          return (
-            <div className="flex flex-col" key={unit}>
-              <label
-                className="rounded-t bg-zinc-600 px-2 py-1 text-zinc-200"
-                htmlFor={unit}
-              >
-                {unit}
-              </label>
-              <input
-                type="text"
-                name={unit}
-                id={unit}
-                className="w-[150px] border bg-zinc-100 p-2"
-                onChange={handleChange}
-              />
-            </div>
-          );
-        })}
-      </form>
-      <div>
-        <span>Result: </span>
-        <span className="font-bold">{total}</span>
-      </div>
-    </main>
+    <div className="min-h-screen bg-zinc-800">
+      <header className="flex flex-row items-center justify-center gap-2 bg-zinc-800 p-2 font-bold text-zinc-200">
+        <span>Till Addition</span>
+        <span>: {total}</span>
+      </header>
+      <main className="flex w-full flex-col items-center justify-center gap-4 bg-zinc-100 py-10">
+        <form className="flex w-[360px] flex-row flex-wrap justify-center gap-4 rounded border bg-zinc-200 p-4">
+          {Object.keys(till).map((unit) => {
+            return (
+              <div className="flex flex-col" key={unit}>
+                <label
+                  className="rounded-t bg-zinc-600 px-2 py-1 text-zinc-200"
+                  htmlFor={unit}
+                >
+                  {unit}
+                </label>
+                <input
+                  type="number"
+                  name={unit}
+                  id={unit}
+                  className="w-[150px] border bg-zinc-100 p-2"
+                  onChange={handleChange}
+                  inputMode="numeric"
+                />
+              </div>
+            );
+          })}
+        </form>
+        <div className="flex flex-row gap-2">
+          <span>Result:</span>
+          <span className="font-bold">{total}</span>
+        </div>
+      </main>
+      <footer className="p-2 text-center text-sm text-zinc-400">
+        Copyright (c) Baberr.com, 2024
+      </footer>
+    </div>
   );
 }
