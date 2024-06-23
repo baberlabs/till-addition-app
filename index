@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Till Addition</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container {
+        background-color: #eee;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+      form {
+        width: 360px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1rem;
+        gap: 1rem 1.7rem;
+        /* background-color: red; */
+      }
+
+      .input-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      form label {
+        background-color: #ddd;
+        color: #111;
+        padding: 0.5rem;
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+      }
+
+      form input {
+        width: 150px;
+        padding: 1rem;
+        border: #ddd;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+      }
+
+      form button {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 1rem;
+        background-color: #222;
+        color: #eee;
+        margin-top: 1rem;
+      }
+
+      form button:hover,
+      form button:focus {
+        background-color: #111;
+      }
+
+      form button:active {
+        background-color: #000;
+      }
+
+      .result-container {
+        border-radius: 1rem;
+        background-color: #ddd;
+        padding: 2rem 4rem;
+      }
+
+      .result {
+        font-weight: bold;
+      }
+    </style>
+    <script src="./till-addition.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <div class="input-container">
+          <label for="onePs">1p</label>
+          <input type="text" name="onePs" id="onePs" />
+        </div>
+        <div class="input-container">
+          <label for="twoPs">2p</label>
+          <input type="text" name="twoPs" id="twoPs" />
+        </div>
+        <div class="input-container">
+          <label for="fivePs">5p</label>
+          <input type="text" name="fivePs" id="fivePs" />
+        </div>
+        <div class="input-container">
+          <label for="tenPs">10p</label>
+          <input type="text" name="tenPs" id="tenPs" />
+        </div>
+        <div class="input-container">
+          <label for="twentyPs">20p</label>
+          <input type="text" name="twentyPs" id="twentyPs" />
+        </div>
+        <div class="input-container">
+          <label for="fiftyPs">50p</label>
+          <input type="text" name="fiftyPs" id="fiftyPs" />
+        </div>
+        <div class="input-container">
+          <label for="ones">£1</label>
+          <input type="text" name="ones" id="ones" />
+        </div>
+        <div class="input-container">
+          <label for="twos">£2</label>
+          <input type="text" name="twos" id="twos" />
+        </div>
+        <div class="input-container">
+          <label for="fives">£5</label>
+          <input type="text" name="fives" id="fives" />
+        </div>
+        <div class="input-container">
+          <label for="tens">£10</label>
+          <input type="text" name="tens" id="tens" />
+        </div>
+        <div class="input-container">
+          <label for="twenties">£20</label>
+          <input type="text" name="twenties" id="twenties" />
+        </div>
+        <div class="input-container">
+          <label for="fifties">£50</label>
+          <input type="text" name="fifties" id="fifties" />
+        </div>
+        <button>Add</button>
+      </form>
+      <div class="result-container">
+        <span>Result: </span>
+        <span class="result">£0.00</span>
+      </div>
+    </div>
+  </body>
+</html>
